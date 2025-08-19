@@ -32,8 +32,7 @@ function createAddQuoteForm() {
 
 function displayRandomQuote() {
     const quote = showRandomQuote();
-    quoteDisplay.innerHTML = `<p>Quote: ${quote.text}.</p>
-    </br>
+    quoteDisplay.innerHTML = `<p>Quote: ${quote.text}</p>
     <p>Category: ${quote.category}.</p>`;
 }
 
