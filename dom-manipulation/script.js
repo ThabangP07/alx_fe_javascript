@@ -31,3 +31,8 @@ function createAddQuoteForm() {
     pass;
 }
 
+function displayRandomQuote() {
+    const quote = showRandomQuote();
+    quoteDisplay.textContent = `"${quote.text}" - ${quote.category}`;
+}
+
