@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Create a button to add a quote
     const button = document.createElement('button');
-    button.id = 'newQuote';
+    button.id = 'addNewQuote';
     button.textContent = 'Add New Quote';
     document.body.appendChild(button); // Append it to the body
 });
 
 const quoteDisplay = document.getElementById('quoteDisplay');
-const showQuoteButton = document.getElementById('showQuote');
+const showQuoteButton = document.getElementById('newQuote');
 
 const quotes = [
     {
@@ -16,6 +16,12 @@ const quotes = [
     {
         text: "Life is 10% what happens to us and 90% how we react to it.",
         category: "motivational"},
+    { 
+        text: "Stay positive!", category: "Motivation" },
+    { 
+        text: "Code is like humor.", category: "Programming" },
+    { 
+        text: "Simplicity is the soul of efficiency.", category: "Wisdom" },
 ];
 
 
