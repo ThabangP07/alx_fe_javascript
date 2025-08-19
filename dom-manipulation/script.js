@@ -51,6 +51,7 @@ function createAddQuoteForm() {
 
     // Create a form to add a new quote
     const formContainer = document.createElement('div');
+    formContainer.id = 'quoteForm';
     formContainer.innerHTML = `
         <h2>Add a New Quote</h2>
         <input id="newQuoteText" type="text" placeholder="Enter a new quote" /></br>
@@ -71,6 +72,20 @@ function addQuote() {
             text: newQuoteText,
             category: newQuoteCategory
         });
+        
+        // Clear the input fields
+        document.getElementById('newQuoteText').value = '';
+        document.getElementById('newQuoteCategory').value = '';
+
+        // Remove the form from the DOM
+        const formContainer = document.getElementById('quoteForm');
+        formContainer.remove();
+
+        // Return to the home page
+        quoteDisplay.style.display = 'block';
+        showQuoteButton.style.display = 'inline-block'; 
+        document.getElementById("addNewQuote").style.display = "inline-block";
+
     } else {
         alert('Please fill in both fields.');
     }
