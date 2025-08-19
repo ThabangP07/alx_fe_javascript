@@ -17,11 +17,13 @@ const quotes = [
     {
         text: "Life is 10% what happens to us and 90% how we react to it.",
         category: "motivational"},
-]
+];
+
+
 
 //show a random quote
 function showRandomQuote() {
-    pass;
+    return quotes[Math.floor(Math.random() * items.length)];
 }
 
 //add new quote
