@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.id = 'addNewQuote';
     button.textContent = 'Add New Quote';
     document.body.appendChild(button); // Append it to the body
+    button.addEventListener('click', createAddQuoteForm);
 });
 
 // Get elements from the DOM
