@@ -74,6 +74,7 @@ function addQuote() {
         */
 
         let storedQuotes = JSON.parse(localStorage.getItem('localQuotes')) || [];
+
         storedQuotes.push({ newQuoteText, newQuoteCategory });
 
         localStorage.setItem('localQuotes', JSON.stringify(storedQuotes)); // Save the updated quotes to localStorage
@@ -115,3 +116,16 @@ function displayRandomQuote() {
 }
 
 showQuoteButton.addEventListener('click', displayRandomQuote); // trigger the display of a random quote when the button is clicked
+
+//Read the file and update the quotes array and local storage accordingly.
+function importFromJsonFile(event) {
+    const fileReader = new FileReader();
+        fileReader.onload = function(event) {
+        const importedQuotes = JSON.parse(event.target.result);
+        quotes.push(...importedQuotes);
+        saveQuotes();
+        alert('Quotes imported successfully!');
+    };
+    
+    fileReader.readAsText(event.target.files[0]);
+  }
