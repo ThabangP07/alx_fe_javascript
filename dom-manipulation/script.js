@@ -128,4 +128,24 @@ function importFromJsonFile(event) {
     };
     
     fileReader.readAsText(event.target.files[0]);
-  }
+}
+
+// Export quotes as a JSON file
+document.getElementById('exportJson').addEventListener('click', () => {
+
+    // Convert to JSON string (formatted with 2 spaces)
+    const jsonData = JSON.stringify(storedQuotes, null, 2);
+
+    // Create a Blob object
+    const blob = new Blob([jsonData], { type: 'application/json' });
+
+    // Create a temporary URL for the blob
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary download link
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'quotes.json';  // File name
+    document.body.appendChild(a);
+    a.click();
+});
