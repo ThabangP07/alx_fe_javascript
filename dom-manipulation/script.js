@@ -36,6 +36,9 @@ const quotes = [
     },
 ];
 
+// load quotes from localStorage if available
+let storedQuotes = JSON.parse(localStorage.getItem('localQuotes'));
+
 //add new quote
 function createAddQuoteForm() {
 
@@ -100,7 +103,7 @@ function showRandomQuote() {
 
 // Function to display the chosen quote
 function displayRandomQuote() {
-    const quote = showRandomQuote();
+    //const quote = showRandomQuote();
     quoteDisplay.innerHTML = `<p>Quote: ${quote.text}</p>
     <p>Category: ${quote.category}.</p>`;
 }
