@@ -97,8 +97,8 @@ function addQuote() {
 }
 
 //show a random quote
-function showRandomQuote() {
-    return quotes[Math.floor(Math.random() * quotes.length)];
+function showRandomQuote(objArray) {
+    return objArray[Math.floor(Math.random() * objArray.length)];
 }
 
 // Function to display the chosen quote
