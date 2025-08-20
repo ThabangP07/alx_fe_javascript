@@ -36,11 +36,6 @@ const quotes = [
     },
 ];
 
-//show a random quote
-function showRandomQuote() {
-    return quotes[Math.floor(Math.random() * quotes.length)];
-}
-
 //add new quote
 function createAddQuoteForm() {
 
@@ -68,10 +63,17 @@ function addQuote() {
     const newQuoteCategory = document.getElementById('newQuoteCategory').value;
 
     if (newQuoteText && newQuoteCategory) {
+        /*
         quotes.push({
             text: newQuoteText,
             category: newQuoteCategory
         });
+        */
+
+        let storedQuotes = JSON.parse(localStorage.getItem('localQuotes')) || [];
+        storedQuotes.push({ newQuoteText, newQuoteCategory });
+
+        localStorage.setItem('localQuotes', JSON.stringify(storedQuotes)); // Save the updated quotes to localStorage
         
         // Clear the input fields
         document.getElementById('newQuoteText').value = '';
@@ -89,6 +91,11 @@ function addQuote() {
     } else {
         alert('Please fill in both fields.');
     }
+}
+
+//show a random quote
+function showRandomQuote() {
+    return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 // Function to display the chosen quote
