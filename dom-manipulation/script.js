@@ -103,7 +103,13 @@ function showRandomQuote(objArray) {
 
 // Function to display the chosen quote
 function displayRandomQuote() {
-    //const quote = showRandomQuote();
+    const quote = showRandomQuote(storedQuotes || quotes); // Use storedQuotes if available, otherwise use the default quotes array
+    
+    if (storedQuotes) {
+        quote.text = quote.newQuoteText;
+        quote.category = quote.newQuoteCategory;
+    }
+
     quoteDisplay.innerHTML = `<p>Quote: ${quote.text}</p>
     <p>Category: ${quote.category}.</p>`;
 }
