@@ -218,3 +218,13 @@ async function fetchQuotesFromServer(newQuote) {
     }
 
 }
+
+function syncQuotes() {
+    if (storedQuotes && storedQuotes.length > 0) {
+        fetchQuotesFromServer(storedQuotes);
+        localStorage.removeItem('localQuotes'); // Clear local storage after syncing
+        storedQuotes = [];
+    } else {
+        alert('No new quotes to sync.');
+    }
+}
