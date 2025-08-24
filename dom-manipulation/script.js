@@ -71,7 +71,10 @@ function populateCategories(quoteArray) {
     });
 }
 
-
+// Function to return a selected category
+function getSelectedCategory() {
+    return document.getElementById('categoryFilter').value;
+}
 
 //add new quote
 function createAddQuoteForm() {
