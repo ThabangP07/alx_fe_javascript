@@ -9,16 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', createAddQuoteForm);
 
     //Button that filters quotes by category
-    const filterButton = document.createElement('button');
-    filterButton.id = 'filterQuotes';
-    filterButton.innerHTML = `
+    const filterContainer = document.createElement('div');
+    filterContainer.id = 'filterQuotes';
+    filterContainer.innerHTML = `
         <label>Filter by Category:</label>
         <select id="categoryFilter" 
             onchange="filterQuotes()">
             <option value="all">All Categories</option>
             <!-- Dynamically populated categories -->
         </select>`;
-    document.body.appendChild(filterButton); // Append it to the body
+    document.body.appendChild(filterContainer); // Append it to the body
 
     //filterButton.addEventListener('click', () => {});
 });
