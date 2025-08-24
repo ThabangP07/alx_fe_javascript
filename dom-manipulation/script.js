@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Get elements from the DOM
 const quoteDisplay = document.getElementById('quoteDisplay');
 const showQuoteButton = document.getElementById('newQuote');
-const categoryOptions = document.getElementById('categoryFilter');
+const categoryFilterOptions = document.getElementById('categoryFilter');
 
 const quotes = [
     {
@@ -85,7 +85,7 @@ function filterQuotes(quoteArray) {
 // Function to return a selected category
 function getSelectedCategory() {
     // get the selected category from the dropdown
-    return categoryOptions.value;
+    return categoryFilterOptions.value;
 }
 
 //add new quote
