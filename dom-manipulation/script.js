@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- Dynamically populated categories -->
         </select>`;
     document.body.appendChild(filterContainer); // Append it to the body
+
+    populateCategories(quotes); // Populate categories on page load
     
 });
 
