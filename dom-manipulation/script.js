@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(button); // Append it to the body
     
     button.addEventListener('click', createAddQuoteForm);
+
+    //Button that filters quotes by category
+    const filterButton = document.createElement('button');
+    filterButton.id = 'filterQuotes';
+    filterButton.textContent = 'Filter Quotes by Category';
+    document.body.appendChild(filterButton); // Append it to the body
 });
 
 // Get elements from the DOM
