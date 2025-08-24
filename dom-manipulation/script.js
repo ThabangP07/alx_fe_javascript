@@ -199,3 +199,15 @@ document.getElementById('exportJson').addEventListener('click', () => {
     document.body.appendChild(a);
     a.click();
 });
+
+async function fetchQuotesFromServer() {
+    const apiKey = 'https://jsonplaceholder.typicode.com/posts';
+    try {
+        const response = await fetch(apiKey);
+        const data = await response.json();
+        quotes.push(...data);
+    } catch (error) {
+        console.error('Error fetching quotes:', error);
+    }
+
+}
