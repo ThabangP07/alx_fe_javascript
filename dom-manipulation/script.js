@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     button.addEventListener('click', createAddQuoteForm);
 
-    //Button that filters quotes by category
+    //dropdown menu that filters quotes by category
     const filterContainer = document.createElement('div');
     filterContainer.id = 'filterQuotes';
     filterContainer.innerHTML = `
@@ -19,26 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- Dynamically populated categories -->
         </select>`;
     document.body.appendChild(filterContainer); // Append it to the body
-
-    //filterButton.addEventListener('click', () => {});
+    
 });
 
 // Get elements from the DOM
 const quoteDisplay = document.getElementById('quoteDisplay');
 const showQuoteButton = document.getElementById('newQuote');
 
+
+
 const quotes = [
     {
         text: "The only limit to our realization of tomorrow is our doubts of today.",
-        category: "inspirational"
+        category: "Inspirational"
     },
     {
         text: "Life is 10% what happens to us and 90% how we react to it.",
-        category: "motivational"
+        category: "Motivational"
     },
     { 
         text: "Stay positive!", 
-        category: "Motivation" 
+        category: "Motivational" 
     },
     { 
         text: "Code is like humor.", 
@@ -52,6 +53,23 @@ const quotes = [
 
 // load quotes from localStorage if available
 let storedQuotes = JSON.parse(localStorage.getItem('localQuotes'));
+
+// Function to populate category filter options
+function populateCategories(quoteArray) {
+    
+    const categoryFilterOptions = document.getElementById('categoryFilter');
+
+    const uniqueCategories = [...new Set(quoteArray.map(quote => quote.category))];
+
+    uniqueCategories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category.toLowerCase();
+        option.textContent = category;
+        categoryFilterOptions.appendChild(option);
+    });
+}
+
+
 
 //add new quote
 function createAddQuoteForm() {
