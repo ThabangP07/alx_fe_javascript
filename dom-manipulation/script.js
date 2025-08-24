@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Get elements from the DOM
 const quoteDisplay = document.getElementById('quoteDisplay');
 const showQuoteButton = document.getElementById('newQuote');
-
-
+const categoryOptions = document.getElementById('categoryFilter');
 
 const quotes = [
     {
@@ -59,8 +58,7 @@ let storedQuotes = JSON.parse(localStorage.getItem('localQuotes'));
 // Function to populate category filter options
 function populateCategories(quoteArray) {
     
-    const categoryFilterOptions = document.getElementById('categoryFilter');
-
+    //create an array to remove duplicate categories
     const uniqueCategories = [...new Set(quoteArray.map(quote => quote.category))];
 
     uniqueCategories.forEach(category => {
@@ -76,18 +74,18 @@ function filterQuotes(quoteArray) {
     const selectedCategory = getSelectedCategory();
 
     if (selectedCategory === 'all') {
-        return quoteArray
+        return quoteArray;
     } else {
         return quoteArray.filter(
             quote => quote.category.toLowerCase() === selectedCategory
-        )
+        );
     }
 }
 
-
 // Function to return a selected category
 function getSelectedCategory() {
-    return document.getElementById('categoryFilter').value;
+    // get the selected category from the dropdown
+    return categoryOptions.value;
 }
 
 //add new quote
@@ -96,7 +94,6 @@ function createAddQuoteForm() {
     quoteDisplay.style.display = 'none'; // Hide the quote display
     showQuoteButton.style.display = 'none'; // Hide the show quote button
     document.getElementById("addNewQuote").style.display = "none";
-
 
     // Create a form to add a new quote
     const formContainer = document.createElement('div');
