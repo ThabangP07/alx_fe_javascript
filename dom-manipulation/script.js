@@ -11,8 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     //Button that filters quotes by category
     const filterButton = document.createElement('button');
     filterButton.id = 'filterQuotes';
-    filterButton.textContent = 'Filter Quotes by Category';
+    filterButton.innerHTML = `
+        <label>Filter by Category:</label>
+        <select id="categoryFilter" 
+            onchange="filterQuotes()">
+            <option value="all">All Categories</option>
+            <!-- Dynamically populated categories -->
+        </select>`;
     document.body.appendChild(filterButton); // Append it to the body
+
+    //filterButton.addEventListener('click', () => {});
 });
 
 // Get elements from the DOM
