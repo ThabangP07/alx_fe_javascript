@@ -71,6 +71,20 @@ function populateCategories(quoteArray) {
     });
 }
 
+// Function to filter quotes based on selected category
+function filterQuotes(quoteArray) {
+    const selectedCategory = getSelectedCategory();
+
+    if (selectedCategory === 'all') {
+        return quoteArray
+    } else {
+        return quoteArray.filter(
+            quote => quote.category.toLowerCase() === selectedCategory
+        )
+    }
+}
+
+
 // Function to return a selected category
 function getSelectedCategory() {
     return document.getElementById('categoryFilter').value;
@@ -141,8 +155,10 @@ function showRandomQuote(objArray) {
 
 // Function to display the chosen quote
 function displayRandomQuote() {
+
     const quote = showRandomQuote(storedQuotes || quotes); // Use storedQuotes if available, otherwise use the default quotes array
     
+    //checks if the Local storage quote exists before trying to access its properties
     if (storedQuotes) {
         quote.text = quote.newQuoteText;
         quote.category = quote.newQuoteCategory;
