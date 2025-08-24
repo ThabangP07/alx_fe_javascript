@@ -200,10 +200,17 @@ document.getElementById('exportJson').addEventListener('click', () => {
     a.click();
 });
 
-async function fetchQuotesFromServer() {
+async function fetchQuotesFromServer(newQuote) {
     const apiKey = 'https://jsonplaceholder.typicode.com/posts';
+
     try {
-        const response = await fetch(apiKey);
+        const response = await fetch(apiKey, {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newQuote)
+        });
         const data = await response.json();
         quotes.push(...data);
     } catch (error) {
